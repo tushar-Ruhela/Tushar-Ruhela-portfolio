@@ -43,28 +43,28 @@ export default function Contact() {
   const ref = useReveal();
 
   return (
-    <section className="contact section" id="contact">
-      <div className="container" ref={ref}>
-        <h2 className="section-title reveal">Get In Touch</h2>
-        <p className="section-sub reveal delay-1">
+    <section className="bg-bg-2 py-[100px] px-0 text-center" id="contact">
+      <div className="container mx-auto px-6 max-w-[1100px]" ref={ref}>
+        <h2 className="text-[clamp(1.6rem,3vw,2rem)] font-bold text-text relative inline-block mb-3 after:content-[''] after:absolute after:-bottom-1.5 after:left-1/2 after:-translate-x-1/2 after:w-10 after:h-1 after:bg-accent after:rounded-sm reveal">Get In Touch</h2>
+        <p className="text-text-2 mt-4 mb-12 reveal delay-1">
           I&apos;m open to internships, collaborations, and interesting projects.
           Feel free to reach out!
         </p>
 
-        <div className="contact-grid">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12 text-left">
           {CONTACTS.map((item, i) => (
             <a
               key={item.label}
               href={item.href}
-              className={`contact-card reveal delay-${i}`}
+              className={`bg-surface border border-border rounded-[20px] p-7 flex flex-col items-start gap-3 transition-all text-text hover:border-accent hover:-translate-y-1 hover:shadow-var(--shadow) reveal delay-${i % 3}`}
               target={item.href.startsWith("http") ? "_blank" : undefined}
               rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
             >
-              <div className="contact-icon">
+              <div className="w-12 h-12 bg-accent-glow border border-[rgba(79,142,247,0.2)] rounded-xl flex items-center justify-center text-accent [&>svg]:w-[22px] [&>svg]:h-[22px]">
                 <item.Icon />
               </div>
-              <h3>{item.label}</h3>
-              <p>{item.value}</p>
+              <h3 className="text-base font-semibold">{item.label}</h3>
+              <p className="text-[0.88rem] text-text-2 break-all">{item.value}</p>
             </a>
           ))}
         </div>

@@ -3,62 +3,22 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import styles from "./projects.module.css";
 
-/* ─────────────────────────────────────────────
-   PROJECTS DATA
-   To add a new project, just add an object here.
-───────────────────────────────────────────── */
-const PROJECTS = [
-  {
-    id: 1,
-    icon: "🤝",
-    title: "AutoMeet App",
-    description:
-      "A smart meeting automation platform that streamlines scheduling and coordination. Built with scalability, real-time updates, and seamless UX in mind.",
-    tags: ["React", "Node.js", "MongoDB", "Express"],
-    category: "Fullstack",
-    github: "#",
-    demo: "#",
-    featured: true,
-  },
-  {
-    id: 2,
-    icon: "📹",
-    title: "Video Calling App",
-    description:
-      "Peer-to-peer video calling using WebRTC for real-time communication. Supports audio/video streams with low latency and reliable connections via Socket.io signaling.",
-    tags: ["WebRTC", "Socket.io", "Node.js", "JavaScript"],
-    category: "Realtime",
-    github: "#",
-    demo: "#",
-    featured: true,
-  },
-  {
-    id: 3,
-    icon: "🧠",
-    title: "AI Memory App",
-    description:
-      "An intelligent memory management app powered by AI. Helps users capture, organize, and retrieve information — like a second brain with LLM-powered search.",
-    tags: ["AI/LLM", "React", "Node.js", "MongoDB"],
-    category: "AI",
-    github: "#",
-    demo: "#",
-    featured: true,
-  },
-  // ── Add your new projects below this line ──
-  // {
-  //   id: 4,
-  //   icon: "🚀",
-  //   title: "Your Project Name",
-  //   description: "Short description of what the project does.",
-  //   tags: ["React", "Node.js"],
-  //   category: "Fullstack",   // one of: Fullstack | Realtime | AI | Frontend | Backend | Other
-  //   github: "https://github.com/tushar-Ruhela/your-repo",
-  //   demo: "https://your-deployed-link.com",
-  //   featured: false,
-  // },
-];
+import projectsData from "../data/projects.json";
+
+interface Project {
+  id: number;
+  icon: string;
+  title: string;
+  description: string;
+  tags: string[];
+  category: string;
+  github: string;
+  demo: string;
+  featured?: boolean;
+}
+
+const PROJECTS = projectsData as Project[];
 
 const CATEGORIES = ["All", "Fullstack", "Realtime", "AI", "Frontend", "Backend", "Other"];
 
@@ -96,112 +56,112 @@ export default function ProjectsPage() {
     <>
       <Navbar />
       <main>
-    <section className="section" style={{ minHeight: "100vh", paddingTop: "calc(var(--nav-h) + 40px)" }}>
-      <div className="container">
-        {/* Header */}
-        <div className={styles.header}>
-          <div>
-            <h1 className="section-title">Projects</h1>
-            <p className="section-sub">
-              Things I&apos;ve built &mdash; {PROJECTS.length} project{PROJECTS.length !== 1 ? "s" : ""}
-            </p>
-          </div>
-          <div className={styles.count}>
-            <span className={styles.countNum}>{filtered.length}</span>
-            <span className={styles.countLabel}>showing</span>
-          </div>
-        </div>
-
-        {/* Filter bar */}
-        <div className={styles.filters}>
-          {usedCategories.map((cat) => (
-            <button
-              key={cat}
-              className={`${styles.filterBtn}${activeFilter === cat ? ` ${styles.filterActive}` : ""}`}
-              onClick={() => setActiveFilter(cat)}
-            >
-              {cat}
-              {cat !== "All" && (
-                <span className={styles.filterCount}>
-                  {PROJECTS.filter((p) => p.category === cat).length}
-                </span>
-              )}
-            </button>
-          ))}
-        </div>
-
-        {/* Projects grid */}
-        {filtered.length === 0 ? (
-          <div className={styles.empty}>
-            <span>No projects in this category yet.</span>
-          </div>
-        ) : (
-          <div className={styles.grid}>
-            {filtered.map((project, i) => (
-              <div
-                key={`${activeFilter}-${project.id}`}
-                className={styles.card}
-                style={{ animationDelay: `${i * 60}ms` }}
-              >
-                {/* Top row */}
-                <div className={styles.cardTop}>
-                  <span className={styles.icon}>{project.icon}</span>
-                  <div className={styles.cardTopRight}>
-                    {project.featured && (
-                      <span className={styles.featuredBadge}>
-                        <StarIcon /> Featured
-                      </span>
-                    )}
-                    <span className={styles.catBadge}>{project.category}</span>
-                  </div>
-                </div>
-
-                {/* Title */}
-                <h2 className={styles.title}>{project.title}</h2>
-
-                {/* Description */}
-                <p className={styles.desc}>{project.description}</p>
-
-                {/* Tags */}
-                <div className="project-tags">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="tag">{tag}</span>
-                  ))}
-                </div>
-
-                {/* Links */}
-                <div className={styles.links}>
-                  <a
-                    href={project.github}
-                    className={styles.linkBtn}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <GitHubIcon /> Code
-                  </a>
-                  <a
-                    href={project.demo}
-                    className={`${styles.linkBtn} ${styles.linkBtnPrimary}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ExternalIcon /> Live Demo
-                  </a>
-                </div>
+        <section className="bg-bg-2 py-[100px] px-0" style={{ minHeight: "100vh", paddingTop: "calc(var(--nav-h) + 40px)" }}>
+          <div className="container mx-auto px-6 max-w-[1100px]">
+            {/* Header */}
+            <div className="flex items-start justify-between mb-1">
+              <div>
+                <h1 className="text-[clamp(1.6rem,3vw,2rem)] font-bold text-text relative inline-block mb-3 after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-10 after:h-1 after:bg-accent after:rounded-sm">Projects</h1>
+                <p className="text-text-2 mt-4 mb-12">
+                  Things I&apos;ve built &mdash; {PROJECTS.length} project{PROJECTS.length !== 1 ? "s" : ""}
+                </p>
               </div>
-            ))}
-          </div>
-        )}
+              <div className="text-right">
+                <span className="block text-[2.5rem] font-extrabold text-accent leading-none">{filtered.length}</span>
+                <span className="text-[0.78rem] text-text-3 font-medium uppercase tracking-[0.5px]">showing</span>
+              </div>
+            </div>
 
-        {/* Add project hint */}
-        <div className={styles.addHint}>
-          <p>
-            Want to add a project?{" "}
-            <span>Edit <code>app/projects/page.tsx</code> and add to the <code>PROJECTS</code> array.</span>
-          </p>
-        </div>
-      </div>
-    </section>
+            {/* Filter bar */}
+            <div className="flex gap-2 flex-wrap mb-10">
+              {usedCategories.map((cat) => (
+                <button
+                  key={cat}
+                  className={`flex items-center gap-1.5 px-4 py-1.5 rounded-lg border border-border text-[0.85rem] font-medium transition-all ${activeFilter === cat ? "bg-accent border-accent text-white" : "bg-surface text-text-2 hover:border-accent hover:text-text"}`}
+                  onClick={() => setActiveFilter(cat)}
+                >
+                  {cat}
+                  {cat !== "All" && (
+                    <span className={`px-1.5 py-[1px] rounded-full text-[0.75rem] font-bold ${activeFilter === cat ? "bg-[rgba(255,255,255,0.25)]" : "bg-[rgba(255,255,255,0.2)]"}`}>
+                      {PROJECTS.filter((p) => p.category === cat).length}
+                    </span>
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {/* Projects grid */}
+            {filtered.length === 0 ? (
+              <div className="text-center py-15 text-text-3 text-base">
+                <span>No projects in this category yet.</span>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                {filtered.map((project, i) => (
+                  <div
+                    key={`${activeFilter}-${project.id}`}
+                    className="bg-surface border border-border rounded-[20px] p-7 flex flex-col gap-3.5 relative overflow-hidden transition-all hover:border-accent hover:-translate-y-1.5 hover:shadow-var(--shadow) animate-fadeup before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px] before:bg-gradient-to-r before:from-accent before:to-[#a78bfa] before:opacity-0 hover:before:opacity-100 before:transition-opacity"
+                    style={{ animationDelay: `${i * 60}ms` }}
+                  >
+                    {/* Top row */}
+                    <div className="flex items-start justify-between gap-2">
+                      <span className="text-[2rem] shrink-0">{project.icon}</span>
+                      <div className="flex flex-col items-end gap-1.5">
+                        {project.featured && (
+                          <span className="inline-flex items-center gap-1 px-2.5 py-[3px] rounded-full bg-[rgba(250,201,21,0.15)] text-[#f59e0b] border border-[rgba(250,201,21,0.25)] text-[0.72rem] font-bold">
+                            <StarIcon /> Featured
+                          </span>
+                        )}
+                        <span className="px-2.5 py-[3px] rounded-md bg-accent-glow text-accent border border-[rgba(79,142,247,0.2)] text-[0.72rem] font-bold uppercase tracking-[0.5px]">{project.category}</span>
+                      </div>
+                    </div>
+
+                    {/* Title */}
+                    <h2 className="text-[1.1rem] font-bold text-text">{project.title}</h2>
+
+                    {/* Description */}
+                    <p className="text-[0.9rem] text-text-2 leading-[1.65] flex-1">{project.description}</p>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-1.5 mt-1">
+                      {project.tags.map((tag) => (
+                        <span key={tag} className="px-2.5 py-1 rounded-md text-[0.78rem] font-semibold bg-accent-glow text-accent border border-[rgba(79,142,247,0.2)]">{tag}</span>
+                      ))}
+                    </div>
+
+                    {/* Links */}
+                    <div className="flex gap-2 mt-1">
+                      <a
+                        href={project.github}
+                        className="flex-1 inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg bg-bg-3 border border-border text-text-2 text-[0.83rem] font-semibold transition-all hover:border-accent hover:text-accent"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <GitHubIcon /> Code
+                      </a>
+                      <a
+                        href={project.demo}
+                        className="flex-1 inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-lg bg-accent text-white border border-accent text-[0.83rem] font-semibold transition-all hover:bg-accent-2 hover:border-accent-2"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalIcon /> Live Demo
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Add project hint */}
+            <div className="border border-dashed border-border rounded-xl p-4 md:px-6 text-center text-text-3 text-[0.85rem] mt-2">
+              <p>
+                Want to add a project?{" "}
+                <span className="text-text-2">Edit <code className="bg-bg-3 px-1.5 py-0.5 rounded text-accent text-[0.8rem]">app/projects/page.tsx</code> and add to the <code className="bg-bg-3 px-1.5 py-0.5 rounded text-accent text-[0.8rem]">PROJECTS</code> array.</span>
+              </p>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </>

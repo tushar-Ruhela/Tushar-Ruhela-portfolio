@@ -21,31 +21,31 @@ const EmailIcon = () => (
 
 export default function Hero() {
   return (
-    <section className="hero" id="hero">
-      <div className="hero-grid" aria-hidden="true" />
-      <div className="hero-glow" aria-hidden="true" />
+    <section className="min-h-screen flex items-center pt-[var(--nav-h)] relative overflow-hidden" id="hero">
+      <div className="absolute inset-0 bg-[linear-gradient(var(--border)_1px,transparent_1px),linear-gradient(90deg,var(--border)_1px,transparent_1px)] bg-[size:60px_60px] opacity-40 pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-[20%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,var(--accent-glow)_0%,transparent_70%)] pointer-events-none" aria-hidden="true" />
 
-      <div className="container hero-inner">
+      <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 md:gap-12 items-center py-[60px] pb-[40px] md:py-[80px] relative z-10 w-full text-center md:text-left">
         {/* Text */}
-        <div className="hero-text fadeup">
-          <p className="hero-greeting">Hi, I&apos;m</p>
-          <h1 className="hero-name">Tushar Ruhela</h1>
-          <h2 className="hero-title">Full Stack Developer</h2>
-          <p className="hero-sub">
+        <div className="order-2 md:order-1 animate-fadeup">
+          <p className="text-[0.9rem] font-semibold text-accent tracking-[1.5px] uppercase mb-2">Hi, I&apos;m</p>
+          <h1 className="text-[clamp(2.4rem,5vw,3.8rem)] font-extrabold tracking-[-2px] text-text leading-[1.1] mb-2">Tushar Ruhela</h1>
+          <h2 className="text-[clamp(1.1rem,2.5vw,1.4rem)] font-normal text-text-2 mb-5">Full Stack Developer</h2>
+          <p className="text-base text-text-2 max-w-[480px] leading-[1.75] mb-8 mx-auto md:mx-0">
             BE CSE student at Chitkara University passionate about building{" "}
-            <span className="highlight">scalable applications</span> and solving{" "}
-            <span className="highlight">real-world problems</span>.
+            <span className="text-accent font-semibold">scalable applications</span> and solving{" "}
+            <span className="text-accent font-semibold">real-world problems</span>.
           </p>
-          <div className="hero-cta">
-            <Link href="/projects" className="btn btn-primary">View Projects</Link>
-            <Link href="/contact"  className="btn btn-outline">Get In Touch</Link>
+          <div className="flex gap-3 flex-wrap justify-center md:justify-start mb-8">
+            <Link href="/projects" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-[0.95rem] font-semibold transition-all border-2 border-accent bg-accent text-white hover:bg-accent-2 hover:border-accent-2 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_var(--accent-glow)]">View Projects</Link>
+            <Link href="/contact"  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-[0.95rem] font-semibold transition-all border-2 border-border bg-transparent text-text hover:border-accent hover:text-accent hover:-translate-y-0.5">Get In Touch</Link>
           </div>
-          <div className="hero-socials">
+          <div className="flex gap-3 justify-center md:justify-start">
             <a
               href="https://github.com/tushar-Ruhela/"
               target="_blank"
               rel="noopener noreferrer"
-              className="social-link"
+              className="w-[42px] h-[42px] flex items-center justify-center rounded-lg border border-border bg-surface text-text-2 transition-all hover:border-accent hover:text-accent hover:bg-surface-2 hover:-translate-y-[3px] hover:shadow-[0_6px_20px_var(--accent-glow)]"
               aria-label="GitHub"
             >
               <GitHubIcon />
@@ -54,14 +54,14 @@ export default function Hero() {
               href="https://www.linkedin.com/in/tushar-ruhela-8966332a1"
               target="_blank"
               rel="noopener noreferrer"
-              className="social-link"
+              className="w-[42px] h-[42px] flex items-center justify-center rounded-lg border border-border bg-surface text-text-2 transition-all hover:border-accent hover:text-accent hover:bg-surface-2 hover:-translate-y-[3px] hover:shadow-[0_6px_20px_var(--accent-glow)]"
               aria-label="LinkedIn"
             >
               <LinkedInIcon />
             </a>
             <a
               href="mailto:ruhelat3@gmail.com"
-              className="social-link"
+              className="w-[42px] h-[42px] flex items-center justify-center rounded-lg border border-border bg-surface text-text-2 transition-all hover:border-accent hover:text-accent hover:bg-surface-2 hover:-translate-y-[3px] hover:shadow-[0_6px_20px_var(--accent-glow)]"
               aria-label="Email"
             >
               <EmailIcon />
@@ -70,28 +70,28 @@ export default function Hero() {
         </div>
 
         {/* Avatar */}
-        <div className="hero-avatar-wrap fadeup-delay">
-          <div className="avatar-ring">
-            <div className="avatar-inner">
+        <div className="order-1 md:order-2 flex flex-col items-center gap-4 animate-fadeup-delay">
+          <div className="w-[150px] h-[150px] md:w-[200px] md:h-[200px] rounded-full p-1 bg-gradient-to-br from-accent to-[#a78bfa]">
+            <div className="w-full h-full rounded-full overflow-hidden bg-bg-2 text-[2.2rem]">
               <Image
                 src="/profile-tushar.jpeg"
                 alt="Tushar Ruhela"
                 width={200}
                 height={200}
-                className="avatar-photo"
+                className="w-full h-full rounded-full object-cover block"
                 priority
               />
             </div>
           </div>
-          <div className="avatar-badge">
-            <span className="badge-dot" />
+          <div className="flex items-center gap-2 bg-surface border border-border px-4 py-2 rounded-full text-[0.8rem] text-text-2 font-medium">
+            <span className="w-2 h-2 bg-green rounded-full animate-pulse-green shrink-0" />
             Available for opportunities
           </div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="scroll-line" aria-hidden="true" />
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-[2px] h-[40px] bg-gradient-to-b from-accent to-transparent rounded-sm animate-scroll-anim" aria-hidden="true" />
     </section>
   );
 }

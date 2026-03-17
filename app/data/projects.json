@@ -1,0 +1,108 @@
+[
+  {
+    "id": 1,
+    "icon": "🤝",
+    "title": "AutoMeet App",
+    "description": "A smart meeting automation platform that streamlines scheduling and coordination. Built with scalability, real-time updates, and seamless UX in mind.",
+    "tags": [
+      "React",
+      "Flask",
+      "PostgreSQL",
+      "DrizzleORM",
+      "FFmpeg",
+      "vosk",
+      "Socket.io",
+      "tailwindcss"
+    ],
+    "category": "Fullstack",
+    "github": "https://github.com/tushar-Ruhela/Auto-meet",
+    "demo": "https://hack-india-spark-5-chain-reactor.vercel.app/",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "icon": "📹",
+    "title": "Video Calling App",
+    "description": "Peer-to-peer video calling using WebRTC for real-time communication. Supports audio/video streams with low latency and reliable connections via Socket.io signaling.",
+    "tags": [
+      "WebRTC",
+      "Socket.io",
+      "Node.js",
+      "JavaScript",
+      "MongoDB"
+    ],
+    "category": "Realtime",
+    "github": "https://github.com/tushar-Ruhela/Webrtc-videocall-app",
+    "demo": "https://videomee.netlify.app",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "icon": "🧠",
+    "title": "AI Memory App",
+    "description": "An intelligent memory management app powered by AI. Helps users capture, organize, and retrieve information — like a second brain with LLM-powered search.",
+    "tags": [
+      "AI/LLM",
+      "Prisma-ORM",
+      "vectorDB",
+      "React-Native"
+    ],
+    "category": "AI",
+    "github": "",
+    "demo": "#",
+    "featured": true
+  },
+  {
+    "id": 4,
+    "icon": "📈",
+    "title": "Sales Insight Automator",
+    "description": "AI-powered sales data analysis with executive summary delivery & interactive Q&A",
+    "tags": [
+      "AI/LLM",
+      "Prisma-ORM",
+      "Next.js",
+      "Docker",
+      "CI/CD pipeline",
+      "resend"
+    ],
+    "category": "AI",
+    "github": "https://github.com/tushar-Ruhela/RabbitAI-Tushar",
+    "demo": "https://rabbitai-tushar.vercel.app",
+    "featured": true
+  },
+  {
+    "id": 5,
+    "icon": "📝",
+    "title": "Online-Assignment-portal",
+    "description": "Online assigment portal for upload assignments and view marks by teacher and view assignments by students with admin panel",
+    "tags": [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Express",
+      "Cloudnary",
+      "Node-mailer",
+      "JWT-token"
+    ],
+    "category": "Fullstack",
+    "github": "https://github.com/tushar-Ruhela/Online-assignment-portal",
+    "demo": "#",
+    "featured": true
+  },
+  {
+    "id": 6,
+    "icon": "📖",
+    "title": "Quiz app",
+    "description": "Quiz app for learing html css ,js and html5",
+    "tags": [
+      "html",
+      "css",
+      "js",
+      "html5"
+    ],
+    "category": "Frontend",
+    "github": "https://github.com/tushar-Ruhela/frontend-quiz-app",
+    "demo": "https://webdovlepment-quiz-app.netlify.app",
+    "featured": true
+  }
+]

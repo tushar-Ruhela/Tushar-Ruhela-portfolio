@@ -13,63 +13,40 @@ const ExternalIcon = () => (
   </svg>
 );
 
+import projectsData from "../data/projects.json";
+
 interface Project {
+  id: number;
   icon: string;
   title: string;
   description: string;
   tags: string[];
+  category: string;
   github: string;
   demo: string;
+  featured?: boolean;
 }
 
-const PROJECTS: Project[] = [
-  {
-    icon: "🤝",
-    title: "AutoMeet App",
-    description:
-      "A smart meeting automation platform that streamlines scheduling and coordination. Built with a focus on scalability, real-time updates, and seamless user experience.",
-    tags: ["React", "Node.js", "MongoDB", "Express"],
-    github: "#",
-    demo: "#",
-  },
-  {
-    icon: "📹",
-    title: "Video Calling App",
-    description:
-      "A peer-to-peer video calling application built using WebRTC for real-time communication. Supports audio/video streams with low latency and reliable connections.",
-    tags: ["WebRTC", "Socket.io", "Node.js", "JavaScript"],
-    github: "#",
-    demo: "#",
-  },
-  {
-    icon: "🧠",
-    title: "AI Memory App",
-    description:
-      "An intelligent memory management application powered by AI. Helps users capture, organize, and retrieve information intelligently — like a second brain.",
-    tags: ["AI/LLM", "React", "Node.js", "MongoDB"],
-    github: "#",
-    demo: "#",
-  },
-];
+const PROJECTS = projectsData as Project[];
 
 export default function Projects() {
   const ref = useReveal();
 
   return (
-    <section className="projects section" id="projects">
-      <div className="container" ref={ref}>
-        <h2 className="section-title reveal">Projects</h2>
-        <p className="section-sub reveal delay-1">Things I&apos;ve built</p>
+    <section className="bg-bg-2 py-[100px] px-0" id="projects">
+      <div className="container mx-auto px-6 max-w-[1100px]" ref={ref}>
+        <h2 className="text-[clamp(1.6rem,3vw,2rem)] font-bold text-text relative inline-block mb-3 after:content-[''] after:absolute after:-bottom-1.5 after:left-0 after:w-10 after:h-1 after:bg-accent after:rounded-sm reveal">Projects</h2>
+        <p className="text-text-2 mt-4 mb-12 reveal delay-1">Things I&apos;ve built</p>
 
-        <div className="projects-grid">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
           {PROJECTS.map((project, i) => (
-            <div key={project.title} className={`project-card reveal delay-${i}`}>
-              <div className="project-top">
-                <span className="proj-icon">{project.icon}</span>
-                <div className="proj-links">
+            <div key={project.title} className={`bg-surface border border-border rounded-[20px] p-7 flex flex-col gap-3.5 relative overflow-hidden transition-all hover:border-accent hover:-translate-y-1.5 hover:shadow-var(--shadow) before:absolute before:top-0 before:left-0 before:right-0 before:h-[3px] before:bg-gradient-to-r before:from-accent before:to-[#a78bfa] before:opacity-0 hover:before:opacity-100 before:transition-opacity reveal delay-${i % 3}`}>
+              <div className="flex items-center justify-between">
+                <span className="text-[2rem]">{project.icon}</span>
+                <div className="flex gap-2">
                   <a
                     href={project.github}
-                    className="proj-link"
+                    className="w-[34px] h-[34px] flex items-center justify-center rounded-lg bg-bg-3 border border-border text-text-2 transition-all hover:border-accent hover:text-accent [&>svg]:w-[15px] [&>svg]:h-[15px]"
                     target="_blank"
                     rel="noopener noreferrer"
                     title="GitHub"
@@ -78,7 +55,7 @@ export default function Projects() {
                   </a>
                   <a
                     href={project.demo}
-                    className="proj-link"
+                    className="w-[34px] h-[34px] flex items-center justify-center rounded-lg bg-bg-3 border border-border text-text-2 transition-all hover:border-accent hover:text-accent [&>svg]:w-[15px] [&>svg]:h-[15px]"
                     target="_blank"
                     rel="noopener noreferrer"
                     title="Live Demo"
@@ -87,11 +64,11 @@ export default function Projects() {
                   </a>
                 </div>
               </div>
-              <h3 className="project-title">{project.title}</h3>
-              <p className="project-desc">{project.description}</p>
-              <div className="project-tags">
+              <h3 className="text-[1.1rem] font-bold text-text">{project.title}</h3>
+              <p className="text-[0.9rem] text-text-2 leading-[1.65] flex-1">{project.description}</p>
+              <div className="flex flex-wrap gap-1.5 mt-1">
                 {project.tags.map((tag) => (
-                  <span key={tag} className="tag">{tag}</span>
+                  <span key={tag} className="px-2.5 py-1 rounded-md text-[0.78rem] font-semibold bg-accent-glow text-accent border border-[rgba(79,142,247,0.2)]">{tag}</span>
                 ))}
               </div>
             </div>
