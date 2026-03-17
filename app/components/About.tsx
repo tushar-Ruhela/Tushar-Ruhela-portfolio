@@ -1,6 +1,21 @@
 "use client";
 
 import { useReveal } from "./useReveal";
+import projectsData from "../data/projects.json";
+
+interface Project {
+  id: number;
+  icon: string;
+  title: string;
+  description: string;
+  tags: string[];
+  category: string;
+  github: string;
+  demo: string;
+  featured?: boolean;
+}
+
+const PROJECTS = projectsData as Project[];
 
 export default function About() {
   const ref = useReveal();
@@ -28,7 +43,7 @@ export default function About() {
             </p>
             <div className="flex gap-5 md:gap-8 mt-8 pt-7 border-t border-border">
               <div>
-                <span className="block text-[1.8rem] font-extrabold text-accent">40+</span>
+                <span className="block text-[1.8rem] font-extrabold text-accent">{PROJECTS.length}+</span>
                 <span className="block text-[0.8rem] text-text-3 mt-0.5 font-medium">Projects Built</span>
               </div>
               <div>
