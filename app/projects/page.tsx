@@ -5,18 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 import projectsData from "../data/projects.json";
-
-interface Project {
-  id: number;
-  icon: string;
-  title: string;
-  description: string;
-  tags: string[];
-  category: string;
-  github: string;
-  demo: string;
-  featured?: boolean;
-}
+import { Project } from "@/app/types";
 
 const PROJECTS = projectsData as Project[];
 
