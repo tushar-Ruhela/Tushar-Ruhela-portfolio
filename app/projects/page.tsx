@@ -142,13 +142,7 @@ export default function ProjectsPage() {
               </div>
             )}
 
-            {/* Add project hint */}
-            <div className="border border-dashed border-border rounded-xl p-4 md:px-6 text-center text-text-3 text-[0.85rem] mt-2">
-              <p>
-                Want to add a project?{" "}
-                <span className="text-text-2">Edit <code className="bg-bg-3 px-1.5 py-0.5 rounded text-accent text-[0.8rem]">app/projects/page.tsx</code> and add to the <code className="bg-bg-3 px-1.5 py-0.5 rounded text-accent text-[0.8rem]">PROJECTS</code> array.</span>
-              </p>
-            </div>
+
           </div>
         </section>
       </main>
