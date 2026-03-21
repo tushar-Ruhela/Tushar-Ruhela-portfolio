@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "icon": "🤝",
+    "icon": "/Automeet-.png",
     "title": "AutoMeet App",
     "description": "A smart meeting automation platform that streamlines scheduling and coordination. Built with scalability, real-time updates, and seamless UX in mind.",
     "tags": [
@@ -21,7 +21,7 @@
   },
   {
     "id": 2,
-    "icon": "📹",
+    "icon": "/video-calling app.png",
     "title": "Video Calling App",
     "description": "Peer-to-peer video calling using WebRTC for real-time communication. Supports audio/video streams with low latency and reliable connections via Socket.io signaling.",
     "tags": [
@@ -38,7 +38,7 @@
   },
   {
     "id": 3,
-    "icon": "🧠",
+    "icon": "FaBrain",
     "title": "AI Memory App",
     "description": "An intelligent memory management app powered by AI. Helps users capture, organize, and retrieve information — like a second brain with LLM-powered search.",
     "tags": [
@@ -54,7 +54,7 @@
   },
   {
     "id": 4,
-    "icon": "📈",
+    "icon": "/Sales-Insight-generater.png",
     "title": "Sales Insight Automator",
     "description": "AI-powered sales data analysis with executive summary delivery & interactive Q&A",
     "tags": [
@@ -72,7 +72,7 @@
   },
   {
     "id": 5,
-    "icon": "📝",
+    "icon": "/Online-Assignment-portal.png",
     "title": "Online-Assignment-portal",
     "description": "Online assigment portal for upload assignments and view marks by teacher and view assignments by students with admin panel",
     "tags": [
@@ -91,7 +91,7 @@
   },
   {
     "id": 6,
-    "icon": "📖",
+    "icon": "/Quiz-app.png",
     "title": "Quiz app",
     "description": "Quiz app for learing html css ,js and html5",
     "tags": [
