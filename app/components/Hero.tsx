@@ -94,9 +94,9 @@ export default function Hero() {
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </button>
-              <button onClick={() => scrollTo("contact")} className="btn-ghost">
-                Get In Touch
-              </button>
+              <a href="/Tusharruhela-1.pdf" download className="btn-ghost">
+                Resume ↓
+              </a>
             </div>
 
             {/* Social icons */}

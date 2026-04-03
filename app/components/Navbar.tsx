@@ -92,13 +92,6 @@ export default function Navbar() {
 
         {/* Resume CTA + Mobile toggle */}
         <div className="flex items-center gap-3">
-          <a
-            href="/Tusharruhela-1.pdf"
-            download
-            className="hidden md:inline-flex btn-ghost !py-[9px] !px-5 text-[0.85rem]"
-          >
-            Resume ↓
-          </a>
 
           {/* Mobile hamburger */}
           <button
